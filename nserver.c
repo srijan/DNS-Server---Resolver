@@ -8,7 +8,7 @@
 
 //#define ROOT_SERVER_IP "198.41.0.4"
 #define ROOT_SERVER_IP "172.24.2.71"
-#define ROOT_SERVER ".a.root-servers.net"
+#define ROOT_SERVER "a.root-servers.net"
 #define DNS_SERVER "172.24.2.71"
 
 char hostcache[100][100];
@@ -217,6 +217,9 @@ void handleDNSRequest(int sock) {
     writer = writer + sizeof(struct R_DATA);
     replysize += sizeof(struct R_DATA);
 
+    strcpy(writer," ");
+    writer = writer + 1;
+    replysize++;
     strcpy(writer,ROOT_SERVER);
     writer = writer + strlen(ROOT_SERVER);
     replysize += strlen(ROOT_SERVER);

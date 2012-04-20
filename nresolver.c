@@ -15,7 +15,8 @@ int main(int argc, char const *argv[])
   ghreply hostdetails, tmphd;
   hostdetails.type = -2;
   if(argc < 4) {
-    fprintf(stderr, "Usage:  %s <DNS Server> <Hostname> <Iterative(0) / Recursive(1)>\n", argv[0]);
+    fprintf(stderr, "Usage:  %s <DNS Server> <Hostname>" 
+        "<Iterative(0) / Recursive(1)>\n", argv[0]);
     exit(1);
   }
   strncpy(dns_server,argv[1],20);
