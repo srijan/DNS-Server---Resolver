@@ -29,7 +29,6 @@ int main(int argc, char const *argv[])
   if(reqtype == 1) {
     printf("\n*** Resolving %s using %s\n" , hostname, dns_server);
     res = ngethostbyname(hostname,dns_server,reqtype);
-    hostname[strlen(hostname)-1] = '\0';
   }
   else {
     strncpy(tmp_dns_server,dns_server,20);
@@ -37,7 +36,6 @@ int main(int argc, char const *argv[])
     while(1) {
       printf("\n*** Resolving %s using %s\n" , hostname, tmp_dns_server);
       res = ngethostbyname(hostname,tmp_dns_server,reqtype);
-      hostname[strlen(hostname)-1] = '\0';
       if(res.rcode == 0) {
         if(res.ans_count == 0) {
           print_response(res);

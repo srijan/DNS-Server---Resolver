@@ -149,6 +149,7 @@ ghreply ngethostbyname(unsigned char *host,unsigned char *dns_server, int recurs
       reader+=stop;
     }
   }
+  //host[strlen(host)-1] = '\0';
   return retval;
 }
 
@@ -166,6 +167,7 @@ void ChangetoDnsNameFormat(unsigned char* dns,unsigned char* host) {
     }
   }
   *dns++='\0';
+  host[strlen(host)-1] = '\0';
 }
 
 u_char* ReadName(unsigned char* reader,unsigned char* buffer,int* count)
